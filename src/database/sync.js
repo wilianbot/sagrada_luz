@@ -1,4 +1,4 @@
-import sequelize from '../models/config/database';
+import sequelize from '../config/database';
 
 
 // Sincroniza as tabelas no banco de dados
