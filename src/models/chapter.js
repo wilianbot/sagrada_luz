@@ -1,10 +1,13 @@
 import { DataTypes } from "sequelize";
 import sequelize from "./config/database";
+import Verses from './verse';
 
-const chapters = sequelize.define('chapters', {
+const Chapters = sequelize.define('chapters', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
+        aloowNull: false
     },
     book_id: {
         type: DataTypes.INTEGER,
@@ -16,4 +19,7 @@ const chapters = sequelize.define('chapters', {
     }
 })
 
-export default chapters;
+Chapters.hasMany(Verses, { foreignKey: 'chapter_id' });
+Verses.belongsTo(Chapters, { foreignKey: 'chapter_id' });
+
+export default Chapters;

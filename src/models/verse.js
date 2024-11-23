@@ -1,10 +1,12 @@
 import { DataTypes } from "sequelize";
 import sequelize from "./config/database";
 
-const verses = sequelize.define('verses', {
+const Verses = sequelize.define('verses', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
+        aloowNull: false
     },
     chapter_id: {
         type: DataTypes.INTEGER,
@@ -12,4 +14,4 @@ const verses = sequelize.define('verses', {
     }
 })
 
-export default verses;
+export default Verses;
